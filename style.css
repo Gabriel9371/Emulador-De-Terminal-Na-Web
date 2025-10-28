@@ -1,0 +1,36 @@
+body {
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100hv;
+    margin: 2;
+}
+
+#terminal{
+    background-color: black;
+    color: white;
+    width: 800px;
+    height: 500px;
+    border-radius: 9px;
+    box-shadow: 0 0 20px rgba(0,0,0, 0.6);
+    padding: 10px;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+#inputline{
+    display: flex;
+    gap: 8px;
+
+}
+
+#cmdinput{
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    flex: 1;
+}
