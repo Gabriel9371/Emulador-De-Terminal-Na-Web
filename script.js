@@ -7,9 +7,13 @@ input.addEventListener('keydown', function(event){
     const command = input.value; //pegando o que foi igitado
     input.value = '' // limpando o input pra poder receber novos commandos
 
-    const help = ['clear --limpar a tela <br>ls --listar diretorios/arquivos <br> echo --imprimir uma menssagem na tela <br>']
 
-    let fastfetcharch = ''
+
+    //adicionem os comandos que voces implementarem aqui : 
+    const help = ['clear --limpar a tela <br>ls --listar diretorios/arquivos <br> echo --imprimir uma menssagem na tela <br>memb --lista os membros do grupo<br>infofast --mostra inforamções do sistema<br>cd --entra em um diretorio x']
+    
+
+    
 
     const line = document.createElement('div');
     line.textContent = `${prompt.textContent} ${command}`;
@@ -25,10 +29,19 @@ input.addEventListener('keydown', function(event){
 
     
     else if(command === 'help'){
+
+      //helpl = lista de comandos no help
       const helpl = document.createElement('p');
+      helpl.style.color = 'rgb(255 255 255 / 48%)';
+      helpl.style.fontWeight = 'bold'
       helpl.innerHTML = `lista de comandos: <br> ${help}`;
       output.appendChild(helpl)
+      
+      
+
     }
+
+
 
 
 
@@ -68,16 +81,33 @@ input.addEventListener('keydown', function(event){
 
       const arte = document.createElement('div');
       arte.textContent = `
-  888                    
-888                    
-888                    
-888888888  888888  888 
-888   888  888 Y8bd8P 
-888   888  888  X88K   
-Y88b. Y88b 888.d8""8b. 
-"Y888 "Y88888888  888 `;
+
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⣶⣿⣷⡀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣿⣿⣿⣿⣿⣿⣷⠶⠦
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⡿⠛⠋⠁⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣦⠀⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣆⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⣀⣠⣴⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀
+      ⠒⢶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⠀
+      ⠀⠀⠉⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠀⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢿⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡀⠀⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⠿⣶⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⢿⣶⣶⣶⠄⠀⠀⠀⠀⠀⠀⠀⠀
+
+      `;
 
       arte.style.color = '#39dbdbff'
+      
 
 
       const info = document.createElement('div');
@@ -93,12 +123,13 @@ Y88b. Y88b 888.d8""8b.
         `Navegador: ${navegador}`,
         `Lingua: ${lingua}`,
         `Monitor resolution: ${resolucao}`
+        //tem que colocar mais coisa aq: ...
 
 
       ];
 
       info.innerHTML = lines.join('<br>');
-      info.style.color = '#0f0'
+      info.style.color = '#0f0';
 
       
       //juntando tuod no bloco
@@ -111,18 +142,40 @@ Y88b. Y88b 888.d8""8b.
 
 
 
-
-
     //todos os comando tem que esta acima desse, nunca depois
+    else if(command === 'egg'){
+      const jf = document.createElement('img')
+      jf.src = 'ovo.webp' //or cat.jpeg ou alguma outra imagem.
+      jf.style.height = '300px';
+      
+      // jf.appendChild(jf)
+      output.appendChild(jf)
 
-    else{
-      const errinho = document.createElement('p')
-      errinho.textContent = `Comando não encontrado: ${command}`
-      output.appendChild(errinho)
     }
     
 
-    //sem mais nada depois daqui pfv ass. Gabriel lindo!!
+
+    //não sei porque não funciona
+    else if(command === 'memb'){
+      const memberrs = 'Douglas Gabriel<br>Adam Freire<br>Paulo Henrique<br>Luan<br>Alessandro';
+      const members = document.createElement('p');
+      members.style.color = '#0CF724';
+      members.innerHTML = `Membros:<br> ${memberrs}`
+      output.appendChild(members)
+
+    }
+
+
+
+    
+
+    else{
+      const errinho = document.createElement('p')
+      errinho.textContent = `${command} --Comando não encontrado`
+      output.appendChild(errinho)
+    }
+
+    //sem mais nada depois daqui pfv ass: Gabriel lindo!!
     // --
     // --
   }
