@@ -1,0 +1,138 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cantarell', 'Ubuntu', 'DejaVu Sans', sans-serif; 
+    background-color: #333; 
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Estrutura Principal */
+.linux-desktop {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+/* barra superior  */
+.top-bar {
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.7); /* Transparente escuro */
+    backdrop-filter: blur(5px); /* Efeito blur moderno */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 100;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.activities-button {
+    padding: 0 15px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+}
+
+.system-status span, .user-menu {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/*Área de Trabalho Principal */
+.wallpaper-area {
+    flex-grow: 1;
+    background-image: url('img/39088-opensuse-linux-hd-wallpaper-desktop-and-mobile-image-photo.jpg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding-left: 70px; 
+    padding-top: 20px;
+}
+
+.wallpaper-area > .abc{
+    display: flex;
+    justify-content: center;
+
+}
+
+/* barra lateral esquerda */
+.dash {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 60px; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 50;
+}
+
+.app-icon {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.app-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-icon.active::after {
+    
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 80%;
+    
+    border-radius: 0 3px 3px 0;
+}
+
+.app-icon .icon {
+    font-size: 1.8em;
+}
+
+.app-icon .label {
+    display: none; 
+    font-size: 0.7em;
+    color: #fff;
+}
+
+.separator {
+    height: 20px;
+}
+
+.bottom-button {
+    margin-top: auto; 
+    margin-bottom: 10px;
+}
+
+
+.Apps{
+    font-size: 60px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: auto;
+    width: auto;
+}
