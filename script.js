@@ -1,7 +1,7 @@
 const output = document.getElementById("output");
 const input = document.getElementById("cmdinput");
 const prompt = document.getElementById("prompt");
-
+const inputline = document.getElementById("span1");
 
 
 const diretorios = {
@@ -9,6 +9,7 @@ const diretorios = {
   documents: ["report.txt", "novoComando->egg.md"],
   desktop: ["shortcuts.txt"],
 };
+const colors = ['#1EFF00','#D8B18D','#8DD8D7','#8D8ED8']
 
 
 
@@ -37,6 +38,7 @@ input.addEventListener("keydown", function (event) {
     line.textContent = `${prompt.textContent} ${command}`;
     output.appendChild(line); //append child pelo q intendi é pra adicionar a div criada ao final do #output
 
+
     //teste de comando clear
     if (command === "clear") {
       output.innerHTML = "";
@@ -57,8 +59,11 @@ input.addEventListener("keydown", function (event) {
         // Lista os itens
         const lsL = document.createElement("p");
         // Usamos tabulação (\t) para melhor visualização
+        
         lsL.textContent = itens.join("\t");
+        lsL.style.color = '#1EFF00'        
         output.appendChild(lsL);
+
       }
     } 
     
@@ -158,8 +163,25 @@ input.addEventListener("keydown", function (event) {
       output.appendChild(bloco);
     } 
 
+    // comando de remover diretorios
+    else if (command.startsWith("rm")) {
+      let diretorioR = command.replace(/^rm\s*/, "").trim();
+      
+      let indice = diretorios[nomeDiretorio].indexOf(diretorioR);
+      if (indice !== 1) {
+        diretorios[nomeDiretorio].splice(indice, 1)
+      };
 
+      delete diretorios[diretorioR];
+    }
 
+    // comando de criar diretorios
+    else if (command.startsWith("mkdir")) {
+      let diretorioN = command.replace(/^mkdir\s*/, "").trim();
+      
+      diretorios[nomeDiretorio].push(`${diretorioN}`);
+      diretorios[diretorioN] = [''];
+    }
 
     else if (command.startsWith("cd")) {
       // Pega o argumento após 'cd'
@@ -181,10 +203,12 @@ input.addEventListener("keydown", function (event) {
             // Muda o diretório atual.
             nomeDiretorio = comando;
 
-            // Opcional: Adicionar uma mensagem de confirmação
-            const cdL = document.createElement("p");
-            cdL.textContent = `Diretório atual: ${nomeDiretorio}`;
-            output.appendChild(cdL);
+            // cita o diretorio na inputline
+              let teste = `/${nomeDiretorio}`
+              // let randomizador = Math.random(colors)
+              // inputline.style.color = `${randomizador}`;     tentar!
+              inputline.innerHTML=teste;
+        
           } 
           else {
 
@@ -215,9 +239,10 @@ input.addEventListener("keydown", function (event) {
 
           nomeDiretorio = "user";
 
-          const cdL = document.createElement("p");
-          cdL.textContent = `Retornou ao diretório: ${nomeDiretorio}`;
-          output.appendChild(cdL);
+          // cita o diretorio na inputline
+            let teste = ''
+            inputline.innerHTML=teste;
+      
         } 
 
         else {
